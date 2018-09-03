@@ -1,0 +1,12 @@
+.page {
+  height: 100vh;
+  background-color: #f0eff4;
+}
+
+.banner {
+  margin-bottom: 22rpx;
+}
+
+.banner-verify {
+  height: 338rpx;
+}

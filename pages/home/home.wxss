@@ -1,0 +1,64 @@
+/* pages/home/home.wxss */
+.swiper {
+  height: 480rpx;
+  z-index: 1;
+}
+
+.swiper-img {
+  width: 100%;
+  height: 100%;
+}
+
+.section__title {
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #758d94;
+}
+
+.section__bd {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 30rpx;
+}
+
+.city-box {
+  position: relative;
+  width: 216rpx;
+  height: 216rpx;
+  margin-bottom: 20rpx;
+  line-height: 216rpx;
+  text-align: center;
+}
+
+.city-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8rpx;
+}
+
+.city-name {
+  color: #fff;
+  font-size: 26rpx;
+  z-index: 1;
+  position: relative;
+}
+
+.publish-hover {
+  border-radius: 144rpx;
+  background-color: #d25d29;
+}
+
+.fix-top {
+  position: fixed;
+  width: 100%;
+  z-index: -1;
+  top: 50rpx;
+  text-align: center;
+  color: #c6c6c6;
+}

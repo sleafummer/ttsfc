@@ -1,0 +1,67 @@
+<wxs src="../../filter/computedDate.wxs" module="tools" />
+<view class="page">
+  <map id="myMap" class="my-map" markers="{{markers}}" bindmarkertap="markertap" include-points="{{includePoints}}" polyline="{{polyline}}" show-location="{{ true }}" scale="{{ 10 }}" hidden="{{ showShareDialog }}"></map>
+  <view class="trip-panel">
+    <view class="trip-panel__hd">
+      <text wx:if="{{ trip.type == 1 }}">人找车</text>
+      <text wx:if="{{ trip.type == 2 }}">车找人</text>
+    </view>
+    <view class="trip-panel__bd">
+      <view class="trip-media-box">
+        <view class="trip-media-box-panel">
+          <view class="trip-media-box__hd">
+            <image class="avatar-img" src="{{ trip.user.avatarUrl ? trip.user.avatarUrl : '/images/icon/da.png' }}"></image>
+          </view>
+          <view class="trip-media-box__bd">
+            <view class="nickname">{{ trip.user.nickName }}</view>
+            <view class="passage-count">
+              {{ trip.passageCount }}
+              <text wx:if="{{ trip.type == 1 }}">人</text>
+              <text wx:if="{{ trip.type == 2 }}">座</text>
+            </view>
+          </view>
+          <view class="trip-media-box__ft">
+            <button class="contact-button" bindtap="onCall">联系<text wx:if="{{ trip.type == 1 }}">乘客</text><text wx:if="{{ trip.type == 2 }}">车主</text>
+            </button>
+          </view>
+        </view>
+      </view>
+      <view class="trip-detail-box">
+        <view class="trip-detail-cell trip-detail-cell__icon trip-detail-cell__icon-time">
+          <block wx:if="{{ tools.compareDate(trip.startTime).isToday }}">今天</block>
+          <block wx:elif="{{ tools.compareDate(trip.startTime).isTomorrow }}">明天</block>
+          <block wx:elif="{{ tools.compareDate(trip.startTime).isAfterTomorrow }}">后天</block>
+          <block wx:else>{{ tools.compareDate(trip.startTime).triplocaldate }}</block>
+          <block>
+            {{ tools.compareDate(trip.startTime).time }} - {{ tools.compareDate(trip.endTime).time }}
+          </block>
+        </view>
+        <view class="trip-detail-cell trip-detail-cell__icon trip-detail-cell__icon-from">{{ trip.fromName }}</view>
+        <view class="trip-detail-cell trip-detail-cell__icon trip-detail-cell__icon-dest">{{ trip.destName }}</view>
+        <view class="trip-detail-cell trip-detail-cell__icon trip-detail-cell__icon-red">{{ trip.remarks }}</view>
+      </view>
+    </view>
+    <view class="trip-panel__ft">
+      <button wx:if="{{ trip.tripCode }}" class="share-button" open-type="share">
+        <image class="share-button-icon" src="/images/icon/forward.png"></image>
+        转发到微信群
+      </button>
+    </view>
+  </view>
+  <view class="page__ft">
+    <view class="page__ft-bd">
+      <navigator class="publish-button" open-type="switchTab" url="/pages/publish/publish">我也发一条</navigator>
+    </view>
+    <view class="page__ft-bd">
+      <button class="share-button" bindtap="onGetSharePicture">
+        <image class="share-button-icon" src="/images/icon/friends_circle.png"></image>分享到朋友圈</button>
+    </view>
+  </view>
+</view>
+
+<view class="share-dialog-mask" hidden="{{ !showShareDialog }}">
+  <view class="share-dialog">
+    <canvas canvas-id="shareCanvas" class="share-canvas" bindlongpress="saveSharePictrue"></canvas>
+    <image class="close-icon" src="/images/icon/close.png" bindtap="closeShareDialog"></image>
+  </view>
+</view>

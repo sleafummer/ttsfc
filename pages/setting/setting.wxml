@@ -1,0 +1,16 @@
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-cells weui-cells_after-title">
+      <navigator url="/pages/disclaimer/disclaimer" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">免责声明</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator>
+      <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">版本</view>
+        <view class="weui-cell__ft">
+          <view>v1.0</view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>

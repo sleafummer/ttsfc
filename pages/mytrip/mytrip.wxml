@@ -1,0 +1,16 @@
+<!--pages/mytrip/mytrip.wxml-->
+<view class="page fullpage">
+  <view class="page__bd" wx:if="{{ trips.length }}">
+    <view class="trip-list">
+      <block wx:for="{{ trips }}" wx:for-item="trip" wx:key="tripCode">
+        <trip-item trip="{{ trip }}"></trip-item>
+      </block>
+    </view>
+  </view>
+
+  <view class="no-data" wx:else>
+    <view class="weui-loadmore weui-loadmore_line">
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无行程</view>
+    </view>
+  </view>
+</view>

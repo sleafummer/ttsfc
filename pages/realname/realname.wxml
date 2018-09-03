@@ -1,0 +1,41 @@
+<view class='page'>
+  <view class='page__bd'>
+    <view class="weui-toptips weui-toptips_warn" wx:if="{{ showTopTips }}">{{ errorMsg }}</view>
+    <view class="banner">
+      <image class="banner-verify" src="http://image.ngsfc.cn/ttsfc_verify_banner.jpg"></image>
+    </view>
+    <form report-submit="true" bindsubmit="formSubmit">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">姓名</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input type="text" maxlength="4" class="weui-input" placeholder="请输入真实姓名" id="name" name="name" bindinput="bindInput" />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">身份证号</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input type="idcard" maxLength="18" class="weui-input" placeholder="请输入身份证号码" id="idCard" name="idCard" bindinput="bindInput" />
+          </view>
+        </view>
+      </view>
+      <view class="weui-btn-area">
+        <button wx:if="{{ callTimes >= 3 || callTimes === false }}" type="primary" class="weui-btn" disabled form-type="submit">
+          您失败的次数太多了
+        </button>
+        <button wx:else type="primary" class="weui-btn" disabled="{{ !idCard || !name }}" form-type="submit">
+          提交审核
+        </button>
+      </view>
+    </form>
+    <view class="weui-footer weui-footer_fixed-bottom">
+      <view class="weui-footer__text">根据我国法律规定，我们必须验证您的真实身份</view>
+    </view>
+  </view>
+</view>
+
+<user-dialog wx:if="{{ showUserDialog }}" bind:update="onUserUpdate"></user-dialog>

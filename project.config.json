@@ -1,0 +1,57 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.2.4",
+	"appid": "wx960222f082bea350",
+	"projectname": "唐唐顺风车",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 1,
+			"list": [
+				{
+					"id": 0,
+					"name": "直接跳转车找人详情",
+					"pathName": "pages/trip/trip",
+					"query": "tripCode=ngsfc_2122435646_3561245504551334&tripType=2"
+				},
+				{
+					"id": 1,
+					"name": "直接跳转人找车详情",
+					"pathName": "pages/trip/trip",
+					"query": "tripCode=ngsfc_709846513_2876087369773035&tripType=1"
+				},
+				{
+					"id": 2,
+					"name": "长按识别小程序码",
+					"pathName": "pages/trip/trip",
+					"query": "scene=tripCodengsfc_709846513_2876087369773035&tripType=1",
+					"scene": "1048"
+				}
+			]
+		}
+	}
+}

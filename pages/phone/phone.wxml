@@ -1,0 +1,13 @@
+<view class='page'>
+  <view class='page__hd'>
+    <image class="banner-verify" src="http://image.ngsfc.cn/ttsfc_verify_banner.jpg"></image>
+  </view>
+  <view class="page__bd">
+    <view class="weui-btn-area">
+      <button class="weui-btn" type="primary" open-type='getPhoneNumber' bindgetphonenumber="bindGetPhoneNumber">
+        <image class="button-img" src="/images/icon/weixin.png"></image>
+        <text class="button-text">授权绑定手机号</text>
+      </button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,68 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/publish/publish",
+    "pages/trips/trips",
+    "pages/trip/trip",
+    "pages/setting/setting",
+    "pages/my/my",
+    "pages/driver/driver",
+    "pages/realname/realname",
+    "pages/phone/phone",
+    "pages/list/list",
+    "pages/car/car",
+    "pages/coupon/coupon",
+    "pages/mytrip/mytrip",
+    "pages/integral/integral",
+    "pages/share/share",
+    "pages/disclaimer/disclaimer"
+  ],
+  "window":
+  {
+    "backgroundColor": "#f5f5f5",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#00b589",
+    "navigationBarTitleText": "唐唐顺风车",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar":
+  {
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "color": "#00b589",
+    "selectedColor": "#fe8faf",
+    "list": [
+    {
+      "pagePath": "pages/home/home",
+      "text": "首页",
+      "iconPath": "/images/icon/tab/home.png",
+      "selectedIconPath": "/images/icon/tab/shome.png"
+    },
+    {
+      "pagePath": "pages/publish/publish",
+      "text": "发布",
+      "iconPath": "/images/icon/tab/publish.png",
+      "selectedIconPath": "/images/icon/tab/spublish.png"
+    },
+    {
+      "pagePath": "pages/trips/trips",
+      "text": "行程",
+      "iconPath": "/images/icon/tab/trip.png",
+      "selectedIconPath": "/images/icon/tab/strip.png"
+    },
+    {
+      "pagePath": "pages/my/my",
+      "text": "我的",
+      "iconPath": "/images/icon/tab/my.png",
+      "selectedIconPath": "/images/icon/tab/smy.png"
+    }]
+  },
+  "plugins":
+  {
+    "tencentMap":
+    {
+      "version": "1.0.6",
+      "provider": "wx5bc2ac602a747594"
+    }
+  }
+}

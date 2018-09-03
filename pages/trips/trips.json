@@ -1,0 +1,10 @@
+{
+  "usingComponents":
+  {
+    "trip-item": "/components/trip-item/trip-item"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#00b589",
+  "backgroundTextStyle": "dark",
+  "navigationBarTitleText": "行程"
+}

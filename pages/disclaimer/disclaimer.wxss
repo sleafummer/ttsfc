@@ -1,0 +1,22 @@
+.page {
+  padding: 20rpx 20rpx 60rpx;
+}
+
+.h1 {
+  font-size: 34rpx;
+  font-weight: 700;
+  text-align: center;
+  margin: 30rpx;
+}
+
+.h2 {
+  font-size: 32rpx;
+  font-weight: 700;
+  margin: 40rpx 0 20rpx;
+}
+
+.paragraph {
+  font-size: 30rpx;
+  line-height: 48rpx;
+  margin-bottom: 10rpx;
+}

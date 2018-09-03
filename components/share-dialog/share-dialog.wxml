@@ -1,0 +1,7 @@
+<view class="share-dialog-mask">
+  <view class="share-dialog">
+    <canvas canvas-id="shareCanvas" class="share-canvas"></canvas>
+    <view class="share-text">图片已保存到相册，可分享给好友</view>
+    <image class="close-icon" src="/images/icon/close.png"></image>
+  </view>
+</view>

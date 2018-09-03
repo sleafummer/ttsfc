@@ -1,0 +1,6 @@
+{
+  "usingComponents":
+  {
+    "user-dialog": "/components/user-dialog/user-dialog"
+  }
+}

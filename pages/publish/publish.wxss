@@ -1,0 +1,36 @@
+.noscroll {
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+} 
+
+/* .my-dialog-class {
+  position: fixed;
+  z-index: 9;
+} */
+
+.weui-cell__hd {
+  margin-right: 10px;
+}
+.publish__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.weui-cell__bd {
+  min-height: 24px;
+}
+
+.placeholder {
+  color: #999;
+}
+
+.radio-group {
+  display: flex;
+}
+
+.radio {
+  display: flex;
+  align-items: center;
+  margin-right: 30rpx;
+}

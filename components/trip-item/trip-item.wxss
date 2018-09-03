@@ -1,0 +1,98 @@
+.trip-item {
+  background-color: #fff;
+  border-radius: 4rpx;
+  margin-bottom: 10rpx;
+}
+
+.trip-item__hd {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  padding: 30rpx;
+  border-bottom: 2rpx solid #f3f4f5;
+}
+
+.userinfo {
+  display: flex;
+}
+
+.trip-item__bd {
+  padding: 0 30rpx;
+  border-bottom: 2rpx solid #f3f4f5;
+}
+
+.trip-item__ft {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  font-size: 26rpx;
+}
+
+.avatar {
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 20rpx;
+  border-radius: 100rpx;
+}
+
+.credit {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.nickname {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.value {
+  line-height: 30rpx;
+  padding: 0 6rpx;
+  font-size: 20rpx;
+  color: #00b589;
+  border: 2rpx solid;
+  border-radius: 2rpx;
+}
+
+.call-box {
+  width: 120rpx;
+  height: 100rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.call-button {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.trip-info {
+  padding: 16rpx 0;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  height: 60rpx;
+  font-size: 26rpx;
+  color: #666;
+}
+
+.info-item__icon {
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 20rpx;
+}
+
+.together-button {
+  width: 140rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  color: #00b589;
+  border: 2rpx solid;
+  border-radius: 2rpx;
+}

@@ -1,0 +1,88 @@
+.page {
+  min-height: 100vh;
+  background-color: #f3f4f5;
+}
+
+.page__hd {
+  display: flex;
+  align-items: center;
+  height: 188rpx;
+  padding: 0 25rpx;
+  background-color: #00b589;
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+
+.avatar-button {
+  background-color: transparent;
+}
+
+.avatar-button::after{
+  border: none;
+}
+
+.level {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+  padding-left: 24rpx;
+  font-size: 28rpx;
+  color: #ffffff;
+}
+
+.nickname {
+  font-size: 30rpx;
+  margin-right: 10rpx;
+  color: #ffffff;
+}
+
+.level-icon {
+  width: 28rpx;
+  height: 28rpx;
+  display: inline-block;
+}
+
+.qrcode {
+  width: 68rpx;
+  height: 68rpx;
+}
+
+.weui-flex__console {
+  padding: 34rpx 0;
+}
+
+.weui-flex__console-item {
+  height: 72rpx;
+  padding: 0 34rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 24rpx;
+  color: #a7a7a7;
+}
+
+.weui-flex__console-item:first-child {
+  border-right: 1px solid #eee;
+}
+
+.weui-flex__console-item .number {
+  font-size: 38rpx;
+  color: #000;
+  margin-right: 4rpx;
+  font-weight: 700;
+}
+
+/* 已认证 */
+.weui-badge_primary {
+  background-color: #00b589;
+}
+
+.weui-badge {
+  margin-left: 10rpx;
+}

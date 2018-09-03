@@ -1,0 +1,118 @@
+@import "style/weui.wxss";
+
+page {
+  min-height: 100vh;
+  background-color: #f3f4f5;
+}
+
+.page__ft {
+  padding-bottom: 20rpx;
+  text-align: center;
+}
+
+.page__title {
+  text-align: left;
+  font-size: 40rpx;
+  font-weight: 400;
+}
+
+.page__desc {
+  margin-top: 10rpx;
+  color: #888;
+  text-align: left;
+  font-size: 28rpx;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+image {
+  display: block;
+  width: 100%;
+}
+
+button[type=primary] {
+  background-color: #00b589;
+}
+
+button[disabled][type=primary] {
+  background-color: #02c798;
+}
+
+.button-hover[type=primary] {
+  background-color: #029c77;
+}
+
+/* 转发按钮 */
+.share-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  font-size: 30rpx;
+  color: #00b589;
+}
+
+.share-button:after {
+  border: none;
+}
+
+.share-button .share-button-icon {
+  width: 36rpx;
+  height: 36rpx;
+  display: inline-block;
+  margin-right: 10rpx;
+}
+
+/* 行程详情联系按钮 */
+.contact-button {
+  width: 216rpx;
+  height: 74rpx;
+  border: 2rpx solid #00b589;
+  line-height: 70rpx;
+  color: #00b589;
+  border-radius: 36rpx;
+  font-size: 26rpx;
+  text-align: center;
+  background-color: transparent;
+}
+
+.contact-button.button-hover {
+  background-color: #00b589;
+  color: #fff;
+}
+
+/* 行程条目前的小点 */
+.trip-detail-cell__icon:before {
+  width: 14rpx;
+  height: 14rpx;
+  content: '';
+  display: inline-block;
+  border-radius: 14rpx;
+  background-color: #81828c;
+  vertical-align: middle;
+  margin-right: 46rpx;
+}
+
+.trip-detail-cell__icon-time:before {
+  background-color: #81828c;
+}
+
+.trip-detail-cell__icon-from:before {
+  background-color: #f6a864;
+}
+
+.trip-detail-cell__icon-dest:before {
+  background-color: #00b589;
+}
+
+.trip-detail-cell__icon-red:before {
+  background-color: #ff654d;
+}

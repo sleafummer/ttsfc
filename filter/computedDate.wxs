@@ -1,0 +1,52 @@
+// es6语法不能使用 靠你大爷
+// stripdate 格式为 '2018-08-14 06:00:00'
+// getDate(stripdate)的结果在真机上显示 Invalid Date
+// 查看文档显示 datestring: 日期字符串，其格式为："month day, year hours:minutes:seconds"。再处理一下吧。
+var compareDate = function (stripdate) {
+  if (!stripdate) {
+    return;
+  }
+
+  // 天煞的，不能用const 不能用const
+  var odatetime = stripdate.split(' ');
+  var odate = odatetime[0].split('-');
+  var otime = odatetime[1].split(':');
+  var year = odate[0];
+  var month = odate[1] - 1;
+  var day = odate[2];
+  var hour = otime[0];
+  var minute = otime[1];
+
+  var tripdate = getDate(year, month, day);    // 微信你真行，你造的好用还是怎么的？
+  var triplocaldate = tripdate.toLocaleDateString(); // 日期部分的字符串
+
+  // 当前时间
+  var now = getDate();
+
+  // 今天凌晨时间戳
+  // const stampToday = now.setHours(0, 0, 0, 0);
+
+  // 明天凌晨时间戳
+  var stampTomorrow = getDate().setHours(24, 0, 0, 0);
+  var tomorrow = getDate(stampTomorrow);
+  // 后天凌晨时间戳
+  var stampAfterTomorrow = getDate().setHours(48, 0, 0, 0);
+  var aftertomorrow = getDate(stampAfterTomorrow);
+  
+  var isToday = now.toLocaleDateString() === triplocaldate;
+  var isTomorrow = tomorrow.toLocaleDateString() === triplocaldate;
+  var isAfterTomorrow = aftertomorrow.toLocaleDateString() === triplocaldate;
+
+  return {
+    isToday: isToday,
+    isTomorrow: isTomorrow,
+    isAfterTomorrow: isAfterTomorrow,
+    time: hour + ':' + minute,
+    nowString: now.toLocaleDateString(),
+    triplocaldate: triplocaldate
+  }
+}
+
+module.exports = {
+  compareDate: compareDate  // 不能用ES6，坑
+};

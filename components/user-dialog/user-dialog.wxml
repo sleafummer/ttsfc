@@ -1,0 +1,27 @@
+<view class="mbk-dialog-box">
+  <view class="mbk-dialog-container">
+    <view class="mbk-dialog-header">
+      <view>
+        <image class="logo-img" mode="aspectFit" src="http://image.ngsfc.cn/ttsfc_logo.png"></image>
+      </view>
+    </view>
+    <view class="mbk-dialog-content">
+      <view>
+        <view>您的公开信息 (昵称和头像等)</view>
+        <view>让别人更加快速的找到你哦</view>
+      </view>
+    </view>
+    <view class="mbk-dialog-btns">
+      <!-- <form wx:if="{{cancelText}}" report-submit="true" bindsubmit="cancelAction">
+        <button form-type="submit">{{cancelText}}</button>
+      </form>
+      <form wx:if="{{confirmText}}" report-submit="true" bindsubmit="confirmAction">
+        <button form-type="submit">{{confirmText}}</button>
+      </form> -->
+      <button type="primary" open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo">
+        <image class="button-icon" src="/images/icon/weixin.png"></image>
+        <text class="button-text">确定授权</text>
+      </button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "详情",
+  "usingComponents":
+  {
+    "share-dialog": "/components/share-dialog/share-dialog"
+  }
+}

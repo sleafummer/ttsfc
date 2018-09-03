@@ -1,0 +1,58 @@
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-tab">
+      <view class="weui-navbar trips-navbar">
+        <block wx:for="{{ tripTypes }}" wx:key="value">
+          <view data-type="{{ item.value }}" class="weui-navbar__item {{item.value === params.type ? 'weui-navbar__item_on' : ''}}" bindtap="tabClick">
+            {{ item.value === params.type }}
+            <view class="weui-navbar__title">{{ item.label }}</view>
+          </view>
+        </block>
+      </view>
+      <view class="weui-tab__panel trips-tab__panel">
+        <view class="weui-tab__content" hidden="{{params.type !== 1}}">
+          <view class="trip-list">
+            <block wx:for="{{ passengerTrips }}" wx:for-item="trip" wx:key="tripCode">
+              <trip-item bind:call="onCall" trip="{{ trip }}"></trip-item>
+            </block>
+          </view>
+        </view>
+        <view class="weui-tab__content" hidden="{{params.type !== 2}}">
+          <view class="trip-list">
+            <block wx:for="{{ driverTrips }}" wx:for-item="trip" wx:key="tripCode">
+              <trip-item bind:call="onCall" trip="{{ trip }}"></trip-item>
+            </block>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="publish-tips" wx:if="{{ params.type == 1 && !passengerTrips.length || params.type === 2 && !driverTrips.length }}">
+    <view class="publish-tips-bd">
+      <view class="publish-tips-title">快来发布你的行程</view>
+      <view class="publish-tips-desc">将行程发布到朋友圈，做朋友的顺风车</view>
+      <view class="meta">
+        <view class="meta-box">
+          <view class="meta-hd">
+            <text class="unit">￥</text>0</view>
+          <view class="meta-bd">零费用</view>
+        </view>
+        <view class="meta-box">
+          <view class="meta-hd">
+            <image class="meta-image" src="/images/icon/real.png"></image>
+          </view>
+          <view class="meta-bd">实名审核</view>
+        </view>
+        <view class="meta-box">
+          <view class="meta-hd">
+            <image class="meta-image" src="/images/icon/share.png"></image>
+          </view>
+          <view class="meta-bd">分享经济</view>
+        </view>
+      </view>
+      <view class="publish-button">
+        <button type="primary" bindtap="toPublish">开始发布行程</button>
+      </view>
+    </view>
+  </view>
+</view>

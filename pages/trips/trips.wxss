@@ -1,0 +1,112 @@
+.trips-navbar {
+  left: 0;
+  top: 0;
+  background-color: #00b589;
+  border-top: 1rpx solid #ccc;
+}
+
+.trips-navbar .weui-navbar__item {
+  padding: 38rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.trips-navbar .weui-navbar__item_on .weui-navbar__title {
+  background-color: #028e6c;
+  border-radius: 60rpx;
+  color: #fff;
+}
+
+.trips-navbar .weui-navbar__title {
+  font-size: 26rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 50rpx;
+  color: #b9d6c1;
+}
+
+/* panel 内容区 */
+.trips-tab__panel {
+}
+
+.trip-list {
+  padding: 68rpx 20rpx 20rpx;
+}
+
+.publish-tips {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 670rpx;
+  height: 684rpx;
+  padding-top: 150rpx;
+  color: #00b589;
+}
+
+.publish-tips-bd {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40rpx 30rpx 30rpx;
+  background-color: #fff;
+  border-radius: 8rpx;
+}
+
+.publish-tips-title {
+  font-size: 38rpx;
+  margin-bottom: 62rpx;
+}
+
+.publish-tips-desc {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 56rpx;
+}
+
+.meta {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 60rpx;
+  font-size: 26rpx;
+  text-align: center;
+}
+
+.meta-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.meta-hd {
+  height: 76rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60rpx;
+}
+
+.meta-bd {
+  margin-bottom: 18rpx;
+}
+
+.unit {
+  font-size: 32rpx;
+  vertical-align: text-top;
+}
+
+.meta-image {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.publish-button {
+  width: 100%;
+}

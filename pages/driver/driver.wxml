@@ -1,0 +1,43 @@
+<!--pages/driver/driver.wxml-->
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-cells__title">信息仅用于审核，绝不外泄</view>
+
+    <view class="weui-panel weui-panel_access">
+      <view class="weui-panel__hd">证件信息</view>
+      <view class="weui-panel__bd">
+        <view class="weui-media-box">
+
+          <block wx:for="{{ cards }}" wx:key="resourceType">
+            <view class="choose-image-box" bindtap="chooseIdImage" data-resourcetype="{{item.resourceType}}" data-name="{{item.name}}">
+              <view class="choose-image-placeholder-box" hidden="{{ item.success || item.loading }}">
+                <image class="holder-image" src="/images/icon/media.png"></image>
+                <view>{{ item.label }}</view>
+              </view>
+              <image wx:if="{{ item.url && item.success }}" src="{{ item.url }}"></image>
+              <image wx:if="{{ item.loading }}" class="loading-image" src="/images/icon/loading.png"></image>
+            </view>
+          </block>
+
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="page__ft">
+    <checkbox-group bindchange="bindAgreeChange">
+      <label class="weui-agree" for="weuiAgree">
+        <view class="weui-agree__text">
+          <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
+          <view class="weui-agree__checkbox-icon">
+            <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
+          </view>
+          阅读并同意
+          <navigator url="" class="weui-agree__link">《顺风车信息平台用户协议》</navigator>
+        </view>
+      </label>
+    </checkbox-group>
+    <view class="weui-btn-area">
+      <button type="primary" disabled="{{ !isAgree }}" bindtap="uploadSubmit">提交车主信息</button>
+    </view>
+  </view>
+</view>

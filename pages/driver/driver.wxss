@@ -1,0 +1,64 @@
+/* pages/driver/driver.wxss */
+.page {
+  min-height: 100vh;
+  background-color: #f3f4f5;
+  overflow: hidden;
+}
+
+.page__bd {
+  padding-bottom: 10px;
+}
+
+.weui-media-box {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.choose-image-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 328rpx;
+  height: 186rpx;
+  background-color: #f8f8f8;
+  border: 1px dotted #cccccc;
+  border-radius: 4rpx;
+  font-size: 24rpx;
+  color: #aaa;
+  margin-bottom: 20rpx;
+}
+
+.choose-image-placeholder-box {
+  text-align: center;
+}
+
+.holder-image {
+  width: 34px;
+  height: 34px;
+  margin: 0 auto;
+}
+
+.loading-image {
+  width: 64rpx;
+  height: 64rpx;
+  animation: rotation 1.2s infinite;
+}
+
+.page__ft {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  text-align: left;
+}
+
+.weui-agree  {
+  padding: 15px;
+}
+
+.weui-btn-area {
+  margin-top: .3em;
+}

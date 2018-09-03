@@ -1,0 +1,106 @@
+<view class="page {{ showUserDialog ? 'noscroll' : '' }}">
+  <view class="page__bd">
+    <view class="weui-toptips weui-toptips_warn" wx:if="{{ showTopTips }}">{{ errorMsg }}</view>
+    <form bindsubmit="bindFormSubmit">
+      <view class="weui-cells__title">{{ trip.type == 1 ? '人找车' : '车找人' }}</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+          <view class="weui-cell__hd">
+            <image class="publish__icon" src="/images/icon/type.png"></image>
+          </view>
+          <view class="weui-cell__bd">
+            <radio-group name="type" class="radio-group" bindchange="bindTripTypeChange">
+              <block wx:for="{{ tripTypes }}" wx:key="value">
+                <radio class="radio" value="{{ item.value }}" checked="{{ item.checked }}">
+                  <text>{{ item.label }}</text>
+                </radio>
+              </block>
+            </radio-group>
+          </view>
+        </view>
+        <view class="weui-cell" id="from" bindtap="bindChooseLocation">
+          <view class="weui-cell__hd">
+            <image class="publish__icon" src="/images/icon/from.png"></image>
+          </view>
+          <view class="weui-cell__bd {{ trip.fromName === '出发地' ? 'placeholder' : '' }}">
+            {{ trip.fromName }}
+          </view>
+        </view>
+        <view class="weui-cell" id="dest" bindtap="bindChooseLocation">
+          <view class="weui-cell__hd">
+            <image class="publish__icon" src="/images/icon/dest.png"></image>
+          </view>
+          <view class="weui-cell__bd {{ trip.destName === '目的地' ? 'placeholder' : '' }}">
+            {{ trip.destName }}
+          </view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell__hd">
+            <image class="publish__icon" src="/images/icon/date.png"></image>
+          </view>
+          <view class="weui-cell__bd">
+            <picker mode="date" value="{{ trip.date }}" start="{{ today }}" end="{{ maxday }}" id="date" bindchange="bindPickerChange">
+              <view class="picker {{ trip.date === '出发日期' ? 'placeholder' : '' }}">
+                {{ trip.date }}
+              </view>
+            </picker>
+          </view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell__hd">
+            <image class="publish__icon" src="/images/icon/time.png"></image>
+          </view>
+          <view class="weui-cell__bd">
+            <picker name="earliestTime" mode="time" value="{{ trip.earliestTime }}" start="06:00" end="22:00" id="earliestTime" bindchange="bindPickerChange">
+              <view class="picker {{ trip.earliestTime === '最早出发时间' ? 'placeholder' : '' }}">
+                {{ trip.earliestTime }}
+              </view>
+            </picker>
+          </view>
+          <image class='publish__icon' src="/images/icon/to-right.png" style="margin: 0 auto;"></image>
+          <view class="weui-cell__bd">
+            <picker name="latestTime" mode="time" value="{{ trip.latestTime }}" start="{{ trip.earliestTime }}" end="22:00" id="latestTime" bindchange="bindPickerChange">
+              <view class="picker {{ trip.latestTime === '最晚出发时间' ? 'placeholder' : '' }}" style="text-align: right;">
+                {{ trip.latestTime }}
+              </view>
+            </picker>
+          </view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell__hd">
+            <image class="publish__icon" src="/images/icon/person.png"></image>
+          </view>
+          <view class="weui-cell__bd">
+            <picker name="passageCount" value="{{ passageCount }}" range="{{ SEATS }}" bindchange="bindSeatChange">
+              <view class="picker">
+                {{ trip.passageCount }} {{ trip.type == 1 ? '人' : '座' }}
+              </view>
+            </picker>
+          </view>
+        </view>
+      </view>
+      <view class="weui-cells">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <textarea name="message" class="weui-textarea" placeholder="备注留言" style="height: 3.3em" id="remarks" bindblur="bindPickerChange" />
+          </view>
+        </view>
+      </view>
+      <checkbox-group bindchange="bindAgreeChange">
+        <label class="weui-agree" for="weuiAgree">
+          <view class="weui-agree__text">
+            <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
+            <view class="weui-agree__checkbox-icon">
+              <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
+            </view>
+            阅读并同意
+            <navigator url="/pages/disclaimer/disclaimer" class="weui-agree__link">免责声明</navigator>
+          </view>
+        </label>
+      </checkbox-group>
+      <view class="weui-btn-area">
+        <button class="weui-btn" type="primary" disabled="{{ !isAgree }}" form-type="submit">确定</button>
+      </view>
+    </form>
+  </view>
+</view>

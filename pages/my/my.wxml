@@ -1,0 +1,98 @@
+<view class="page">
+  <view class="page__hd">
+    <image wx:if="{{ userInfo.avatarUrl }}" class="avatar" src="{{ userInfo.avatarUrl }}"></image>
+    <button wx:else="{{ !userInfo.avatarUrl }}" class="avatar-button" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+      <image class="avatar" src="/images/icon/da.png"></image>
+    </button>
+    <view class='level'>
+      <text class="nickname">{{ userInfo.nickName }}</text>
+      <image wx:if="{{ userInfo.nickName }}" class='level-icon' src="/images/icon/level-1.png"></image>
+    </view>
+    <image class="qrcode" src="/images/icon/u-qrcode.png"></image>
+  </view>
+  <view class="page__bd">
+    <view class="weui-panel">
+      <view class="weui-panel__bd">
+        <view class="weui-flex weui-flex__console">
+          <navigator url="/pages/mytrip/mytrip" class="weui-flex__item weui-flex__console-item">
+            <image src="/images/icon/all.png" style="width: 20px; height: 20px;"></image>
+            <view>
+              <view>
+                <text class="number">0</text>
+                <text>次</text>
+              </view>
+              <view>
+                顺风车行程
+              </view>
+            </view>
+          </navigator>
+          <view class="weui-flex__item weui-flex__console-item">
+            <image src="/images/icon/integral.png" style="width: 20px; height: 20px;"></image>
+            <view>
+              <view>
+                <text class="number">0</text>
+                <text>个</text>
+              </view>
+              <view>
+                我的积分
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-panel" wx:if="{{ userInfo.role > 0 }}">
+      <view class="weui-panel__hd">认证</view>
+      <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_small-appmsg">
+          <view class="weui-cells weui-cells_in-small-appmsg">
+            <view class="weui-cell weui-cell_access" hover-class="{{ !isRealname ? 'weui-cell_active' : '' }}" bindtap="navigateToRealname">
+              <view class="weui-cell__hd">
+                <image src="/images/icon/realname.png" style="width: 20px;height: 20px;margin-right: 5px" />
+              </view>
+              <view class="weui-cell__bd weui-cell_primary">
+                <view style="display: inline-block; vertical-align: middle">实名认证</view>
+                <view wx:if="{{ isRealname }}" class="weui-badge weui-badge_primary">已认证</view>
+                <view wx:else class="weui-badge">未认证</view>
+              </view>
+              <view wx:if="{{ !isRealname }}" class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </view>
+            <view class="weui-cell weui-cell_access" hover-class="{{ !isDriver && driverAuditStatus === 'unaudited' ? 'weui-cell_active' : '' }}" bindtap="navigateToDriver">
+              <view class="weui-cell__hd">
+                <image src="/images/icon/car.png" style="width: 20px;height: 20px;margin-right: 5px" />
+              </view>
+              <view class="weui-cell__bd">
+                <view style="display: inline-block; vertical-align: middle">车主认证</view>
+                <view wx:if="{{ isDriver }}" class="weui-badge weui-badge_primary">已认证</view>
+                <view wx:elif="{{ driverAuditStatus === 'wait' }}" class="weui-badge weui-badge">等待审核</view>
+                <view wx:elif="{{ driverAuditStatus === 'failed' }}" class="weui-badge">审核失败</view>
+                <view wx:else class="weui-badge">未认证</view>
+              </view>
+              <view wx:if="{{ !isDriver && driverAuditStatus === 'unaudited' }}" class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-panel">
+      <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_small-appmsg">
+          <view class="weui-cells weui-cells_in-small-appmsg">
+            <navigator url="/pages/setting/setting" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+              <view class="weui-cell__hd">
+                <image src="/images/icon/setting.png" style="width: 20px;height: 20px;margin-right: 5px" />
+              </view>
+              <view class="weui-cell__bd weui-cell_primary">
+                <view>设置</view>
+              </view>
+              <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>

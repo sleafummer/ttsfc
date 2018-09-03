@@ -1,0 +1,34 @@
+.share-dialog-mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+.share-dialog {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.share-canvas {
+  width: 600rpx;
+  height: 900rpx;
+  margin-bottom: 40rpx;
+}
+
+.share-text {
+  font-size: 30rpx;
+  color: #fff;
+  margin-bottom: 40rpx;
+}
+
+.close-icon {
+  width: 96rpx;
+  height: 96rpx;
+}
