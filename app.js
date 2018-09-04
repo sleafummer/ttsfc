@@ -14,6 +14,7 @@ App({
 
   // 从服务器获取用户信息
   __fetchUserinfo() {
+    console.log('从服务器获取用户信息');
     const user = new User();
     user.get()
       .then(res => {
@@ -29,6 +30,7 @@ App({
 
   // 从服务器获取用户token
   __fetchToken() {
+    console.log('从服务器获取token');
     const oToken = new Token();
     oToken.getTokenFromServer()
       .then(res => {

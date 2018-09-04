@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/mytrip/mytrip",
     "pages/publish/publish",
     "pages/trips/trips",
     "pages/trip/trip",
@@ -12,7 +13,6 @@
     "pages/list/list",
     "pages/car/car",
     "pages/coupon/coupon",
-    "pages/mytrip/mytrip",
     "pages/integral/integral",
     "pages/share/share",
     "pages/disclaimer/disclaimer"

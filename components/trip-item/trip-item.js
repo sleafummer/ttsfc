@@ -9,8 +9,19 @@ Component({
       observer: function(newVal, oldVal, changedPath) {
         // console.log(newVal, oldVal, changedPath)
       }
+    },
+    isMy: {
+      type: Boolean,
+      value: false
+    },
+    currentUser: {
+      type: Object,
+      value: {},
+      observer: function(newVal, oldVal, changedPath) {
+      }
     }
   },
+
   data: {},
 
   /**
@@ -50,7 +61,7 @@ Component({
     toDetail() {
       wx.setStorageSync('trip', this.data.trip);
       wx.navigateTo({
-        url: `/pages/trip/trip?scene=triplist&tripCode=${this.data.trip.tripCode}`
+        url: `/pages/trip/trip?tripCode=${this.data.trip.tripCode}`
       })
     }
   }

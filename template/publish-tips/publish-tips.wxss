@@ -1,0 +1,74 @@
+.publish-tips {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 670rpx;
+  height: 684rpx;
+  padding-top: 150rpx;
+  color: #00b589;
+}
+
+.publish-tips-bd {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40rpx 30rpx 30rpx;
+  background-color: #fff;
+  border-radius: 8rpx;
+}
+
+.publish-tips-title {
+  font-size: 38rpx;
+  margin-bottom: 62rpx;
+}
+
+.publish-tips-desc {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 56rpx;
+}
+
+.publish-tips-meta {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 60rpx;
+  font-size: 26rpx;
+  text-align: center;
+}
+
+.publish-tips-meta .meta-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.publish-tips-meta .meta-hd {
+  height: 76rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60rpx;
+}
+
+.publish-tips-meta .meta-bd {
+  margin-bottom: 18rpx;
+}
+
+.publish-tips-meta .unit {
+  font-size: 32rpx;
+  vertical-align: text-top;
+}
+
+.publish-tips-meta .meta-image {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.publish-tips .publish-button {
+  width: 100%;
+}

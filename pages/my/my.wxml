@@ -17,10 +17,10 @@
           <navigator url="/pages/mytrip/mytrip" class="weui-flex__item weui-flex__console-item">
             <image src="/images/icon/all.png" style="width: 20px; height: 20px;"></image>
             <view>
-              <view>
+              <!-- <view>
                 <text class="number">0</text>
                 <text>次</text>
-              </view>
+              </view> -->
               <view>
                 顺风车行程
               </view>
@@ -41,7 +41,6 @@
         </view>
       </view>
     </view>
-
     <view class="weui-panel" wx:if="{{ userInfo.role > 0 }}">
       <view class="weui-panel__hd">认证</view>
       <view class="weui-panel__bd">
@@ -75,7 +74,6 @@
         </view>
       </view>
     </view>
-
     <view class="weui-panel">
       <view class="weui-panel__bd">
         <view class="weui-media-box weui-media-box_small-appmsg">
@@ -93,6 +91,5 @@
         </view>
       </view>
     </view>
-
   </view>
 </view>

@@ -1,16 +1,32 @@
-<!--pages/mytrip/mytrip.wxml-->
-<view class="page fullpage">
-  <view class="page__bd" wx:if="{{ trips.length }}">
-    <view class="trip-list">
-      <block wx:for="{{ trips }}" wx:for-item="trip" wx:key="tripCode">
-        <trip-item trip="{{ trip }}"></trip-item>
-      </block>
+<import src="../../template/publish-tips/publish-tips" />
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-tab">
+      <view class="weui-navbar trips-navbar">
+        <block wx:for="{{ tripTypes }}" wx:key="value">
+          <view data-type="{{ item.value }}" class="weui-navbar__item {{item.value === params.type ? 'weui-navbar__item_on' : ''}}" bindtap="tabClick">
+            {{ item.value === params.type }}
+            <view class="weui-navbar__title">{{ item.label }}</view>
+          </view>
+        </block>
+      </view>
+      <view class="weui-tab__panel trips-tab__panel">
+        <view class="weui-tab__content" hidden="{{params.type !== 1}}">
+          <view class="trip-list">
+            <block wx:for="{{ passengerTrips }}" wx:for-item="trip" wx:key="tripCode">
+              <trip-item bind:call="onCall" trip="{{ trip }}" isMy="{{ true }}"></trip-item>
+            </block>
+          </view>
+        </view>
+        <view class="weui-tab__content" hidden="{{params.type !== 2}}">
+          <view class="trip-list">
+            <block wx:for="{{ driverTrips }}" wx:for-item="trip" wx:key="tripCode">
+              <trip-item bind:call="onCall" trip="{{ trip }}" isMy="{{ true }}"></trip-item>
+            </block>
+          </view>
+        </view>
+      </view>
     </view>
-  </view>
-
-  <view class="no-data" wx:else>
-    <view class="weui-loadmore weui-loadmore_line">
-      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无行程</view>
-    </view>
+    <template is="publishTips" wx:if="{{ params.type == 1 && !passengerTrips.length || params.type === 2 && !driverTrips.length }}" />
   </view>
 </view>

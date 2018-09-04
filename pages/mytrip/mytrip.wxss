@@ -1,0 +1,35 @@
+@import "../../template/publish-tips/publish-tips.wxss";
+
+.trips-navbar {
+  left: 0;
+  top: 0;
+  background-color: #00b589;
+  border-top: 1rpx solid #ccc;
+}
+
+.trips-navbar .weui-navbar__item {
+  padding: 38rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.trips-navbar .weui-navbar__item_on .weui-navbar__title {
+  background-color: #028e6c;
+  border-radius: 60rpx;
+  color: #fff;
+}
+
+.trips-navbar .weui-navbar__title {
+  font-size: 26rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 50rpx;
+  color: #b9d6c1;
+}
+
+.trip-list {
+  padding: 68rpx 20rpx 20rpx;
+}

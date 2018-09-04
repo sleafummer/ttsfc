@@ -1,18 +1,16 @@
-import { Base } from '../../utils/base.js'
+import { Base } from '../../utils/base'
 
 class Mytrip extends Base {
   constructor() {
     super();
   }
 
-  getMyTrips(data, callback) {
+  query(data) {
     const params = {
       url: '/trip/list/get/my',
-      type: 'POST',
-      data,
-      callback
+      data
     }
-    this.request(params);
+    return this.ajax(params);
   }
 }
 

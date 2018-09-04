@@ -1,6 +1,6 @@
 <wxs src="../../filter/computedDate.wxs" module="tools" />
 <view class="trip-item">
-  <view class="trip-item__hd">
+  <view class="trip-item__hd" hidden="{{ isMy }}">
     <view class="userinfo">
       <image class="avatar" src="{{ trip.user.avatarUrl ? trip.user.avatarUrl : '/images/icon/da.png' }}" />
       <view class="credit">
@@ -36,7 +36,7 @@
       </view>
       <view class="info-item">
         <image class="info-item__icon" src="/images/icon/person.png"></image>
-        <view>{{ trip.passageCount }} 人</view>
+        <view>{{ trip.passageCount }} {{ trip.type == 2 ? '座' : '人' }}</view>
       </view>
     </view>
   </view>

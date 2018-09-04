@@ -38,7 +38,7 @@
         </view>
         <view class="trip-detail-cell trip-detail-cell__icon trip-detail-cell__icon-from">{{ trip.fromName }}</view>
         <view class="trip-detail-cell trip-detail-cell__icon trip-detail-cell__icon-dest">{{ trip.destName }}</view>
-        <view class="trip-detail-cell trip-detail-cell__icon trip-detail-cell__icon-red">{{ trip.remarks }}</view>
+        <view wx:if="{{ trip.remarks }}" class="trip-detail-cell trip-detail-cell__icon trip-detail-cell__icon-red">{{ trip.remarks }}</view>
       </view>
     </view>
     <view class="trip-panel__ft">

@@ -1,0 +1,30 @@
+<template name="publishTips">
+  <view class="publish-tips">
+    <view class="publish-tips-bd">
+      <view class="publish-tips-title">快来发布你的行程</view>
+      <view class="publish-tips-desc">将行程发布到朋友圈，做朋友的顺风车</view>
+      <view class=".publish-tips-meta">
+        <view class="meta-box">
+          <view class="meta-hd">
+            <text class="unit">￥</text>0</view>
+          <view class="meta-bd">零费用</view>
+        </view>
+        <view class="meta-box">
+          <view class="meta-hd">
+            <image class="meta-image" src="/images/icon/real.png"></image>
+          </view>
+          <view class="meta-bd">实名审核</view>
+        </view>
+        <view class="meta-box">
+          <view class="meta-hd">
+            <image class="meta-image" src="/images/icon/share.png"></image>
+          </view>
+          <view class="meta-bd">分享经济</view>
+        </view>
+      </view>
+      <view class="publish-button">
+        <button type="primary" bindtap="toPublish">开始发布行程</button>
+      </view>
+    </view>
+  </view>
+</template>

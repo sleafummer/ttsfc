@@ -5,8 +5,7 @@ import { Qrcode } from '../../utils/qrcode';
 import { wxPromisify } from '../../utils/wxPromisify';
 
 const wxGetImageInfo = wxPromisify(wx.getImageInfo),
-  shareBgUrl = 'https://ngsfc.cn/assets/imgs/ttsfc_share_bg.jpg',
-  qrcodeUrl = 'https://ngsfc.cn/assets/imgs/ttsfc_qr_code.jpg',
+  shareBgUrl = 'https://image.ngsfc.cn/ttsfc_share_bg.jpg',
   timeIcon = '/images/icon/time.png',
   fromIcon = '/images/icon/from.png',
   destIcon = '/images/icon/dest.png';
@@ -239,28 +238,38 @@ Page({
 
   // 生成分享图片
   __generateSharePicture() {
+    // 静态资源 需https
     const pSharebg = wxGetImageInfo({ src: shareBgUrl }), // 背景图
-      pAvatar = wxGetImageInfo({ src: this.data.trip.user.avatarUrl }), // 头像
-      pQrcode = wxGetImageInfo({ src: qrcodeUrl });  // 二维码
-    Promise.all([pSharebg, pAvatar, pQrcode]).then(values => {
-      const sharebg = values[0].path,
-        avatar = values[1].path,
-        qrcode = values[2].path;
-      // 七牛云还没有https
-      // this.__getShareQrCode().then(res => { // 二维码
-      //   console.log('二维码成功获取');
-      //   wxGetImageInfo({ src: res.data.url }).then(res => {
-      //      const qrcode = res.path;
-      //      this.__setCanvas(sharebg, qrcode, avatar);
-      //   })
-      // })
-      this.__setCanvas(sharebg, qrcode, avatar);
-    })
+      pAvatar = wxGetImageInfo({ src: this.data.trip.user.avatarUrl }); // 头像
+    Promise.all([pSharebg, pAvatar])
+      .then(values => {
+        const sharebg = values[0].path,
+          avatar = values[1].path;
+        // 七牛云需要配置https
+        this.__getShareQrCode()
+          .then(res => { // 二维码
+            console.log('二维码成功获取');
+            wxGetImageInfo({ src: res.data.url })
+              .then(res => {
+                const qrcode = res.path;
+                this.__setCanvas(sharebg, qrcode, avatar);
+              })
+          })
+          .catch(error => {
+            console.log(error)
+            wx.showToast({ title: '出错了' })
+          })
+      })
+      .catch(error => {
+        console.log(error);
+        wx.hideLoading();
+        wx.showToast({ title: '出错了' })
+      })
   },
 
   // 获取分享图片上的二维码
   __getShareQrCode() {
-    const scene = `tripCode=${this.data.trip.code}&tripType=${this.data.trip.type}`,
+    const scene = `tripCode=${this.data.trip.tripCode}&tripType=${this.data.trip.type}`,
       page = '/pages/trip/trip',
       qrcode = new Qrcode();
     return qrcode.get({ scene, page })
@@ -277,7 +286,7 @@ Page({
 
     // 昵称
     ctx.setFontSize(18);
-    ctx.fillText('27', 88, 44);
+    ctx.fillText(this.data.trip.user.nickName, 88, 44);
 
     // 时间
     ctx.setFontSize(14);

@@ -2,6 +2,7 @@ import { Trips } from './trips-model';
 import { TRIP_TYPES } from '../../utils/constants';
 import { Auth } from '../../utils/auth';
 import { readyUser } from '../../utils/readyUser';
+import { PAGESIZE } from '../../utils/constants';
 
 const app = getApp();
 
@@ -12,11 +13,10 @@ Page({
     params: {
       destCityCode: '', // 目的地城市代码,非必填
       type: 1, // 1. 人找车 2. 车找人
-      pageSize: 10, // 每页数量
+      pageSize: PAGESIZE, // 每页数量
       currentPage: 1, // 当前页
       orderReg: 'start_time ASC', //排序规则,非必填
     },
-    totalPage: 1, // 总页数
     driverTrips: [], // 车主行程列表
     passengerTrips: [], // 乘客行程列表
     tripTypes: Object.values(TRIP_TYPES), // 类型

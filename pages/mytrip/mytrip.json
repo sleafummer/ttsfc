@@ -1,1 +1,9 @@
-{}
+{
+  "usingComponents":
+  {
+    "trip-item": "/components/trip-item/trip-item"
+  },
+  "backgroundColor": "#00b589",
+  "backgroundTextStyle": "dark",
+  "navigationBarTitleText": "我的行程"
+}
