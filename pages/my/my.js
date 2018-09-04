@@ -12,6 +12,10 @@ Page({
     driverAuditStatus: '' // 车主审核状态
   },
   onLoad: function(options) {
+    console.log('onload');
+  },
+  onShow: function() {
+    console.log('onShow');
     this.__getUserInfo().then(userInfo => {
       this.setData({
         userInfo
@@ -45,11 +49,12 @@ Page({
       const user = new User();
       user.update(userInfo)
         .then(res => {
-          app.globalData.userInfo = res.data.user; // 更新用户信息
+          const userInfo = res.data.user;
+          app.globalData.userInfo = userInfo; // 更新用户信息
           this.setData({
-            userInfo: res.data.user
+            userInfo
           })
-          this.setUserStatus();
+          this.setUserStatus(userInfo);
         })
     }
   },

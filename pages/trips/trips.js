@@ -36,6 +36,10 @@ Page({
     this.__getCity(); // 获取城市信息
   },
 
+  onHide() {
+    wx.removeStorageSync('city');
+  },
+
   // 获取用户信息 - 异步
   __getUserInfo() {
     return readyUser();
@@ -123,15 +127,14 @@ Page({
   // 获取城市信息
   __getCity() {
     const city = wx.getStorageSync('city');
-    let title = '行程';
-    let code = '';
+    let title = '行程',
+      code = '';
     if (city) {
       title = city.name;
       code = city.code;
     }
-    wx.setNavigationBarTitle({
-      title: title
-    })
+    // 设置标题
+    wx.setNavigationBarTitle({ title })
     // 按目的地查询
     this.setData({
       ['params.destCityCode']: code
@@ -151,7 +154,7 @@ Page({
       type = e.detail.type;
     const pass = this.checkAuth('trips', 'call', type);
     if (pass) {
-      wx.makePhoneCall({  phoneNumber })
+      wx.makePhoneCall({ phoneNumber })
     }
   }
 })
